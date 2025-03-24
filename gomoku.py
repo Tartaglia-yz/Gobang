@@ -1,8 +1,9 @@
 import pygame
 import sys
 import requests
-from tkinter import messagebox, Tk
 import re
+
+from tkinter import messagebox, Tk
 from config import MODEL_URL, AUTHORIZATION
 
 # 初始化Pygame
@@ -131,6 +132,7 @@ def get_best_move_from_model(board):
             else:
                 raise ValueError("坐标超出棋盘范围")
         else:
+            raise ValueError("无法解析模型返回的坐标")
     except (ValueError, IndexError) as e:
         raise ValueError(e)
 
